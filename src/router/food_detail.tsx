@@ -13,12 +13,15 @@ const Box = styled.div`
     min-width: 420px;
     justify-content: center;
     align-items: center;
+    margin-top: 7rem;
+    margin-bottom: 2rem;
 `;
 const ImageBox = styled.div`
     width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2rem;
 `;
 const FoodImage = styled.div<{$path:string}>`
     background-image: ${props => `url(${props.$path})`};

@@ -2,17 +2,20 @@ import styled from "styled-components";
 
 export const BackImage = styled.div<{$path:string}>`
     &::before{
+        position: fixed;
         content: '';    
-        position: absolute;
-        top: 0;
+        // position: absolute;
+        top: 85px;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        // height: 100vh;
+        height: calc(100vh - 85px) !important;
         background-image: ${props => `url(${props.$path})`};
-        background-size: cover;
+        background-repeat: repeat;
+        background-size: auto;
         background-position: center;
-        opacity: 0.3; 
-        z-index: -1; 
+        opacity: 0.7; 
+        z-index: -1;
     }
 `;
 export const Svg = styled.svg<{$size:number}>`

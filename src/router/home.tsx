@@ -5,8 +5,12 @@ import { makeRandoms, splitImage } from "../lib/util";
 import WebcamCapture from "../componets/webcam";
 import { NavLink } from "react-router";
 import HowTo from "../componets/howto";
+import { PageTemplate } from "../componets";
+
+import imgLogo from '../assets/logo.png';
 
 const Box = styled.div`
+    margin-top: 7rem;
     width: 90vw;
     display: flex;
     flex-direction: column;
@@ -25,23 +29,33 @@ const Box = styled.div`
 const SearchBox = styled.div`
     margin-top: 20px;
     padding: 20px 40px;
-    background-color: ${props => props.theme.colors.background};
+    // background-color: ${props => props.theme.colors.background};
+    background-color: #ffffff !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     border-radius: 24px;
-    border: 1px dotted gray;
+    border: 0.1px solid #dee2e6;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 `;
 const BannerTitle = styled.div`
-    margin-top: 24px;
+    margin-top: 30px;
     width: 100%;
     min-width: 400px;
     max-width: 640px;
     display: flex;
     padding-bottom: 12px;
-    border-bottom: 1px dotted gray;
+    border-bottom: 2px solid gray;
+    align-self: center;
+    align-items: center;
+    font-color: "#862e9c";
+    img {
+        width: 40px;
+        height: auto;
+    }
     span{
+        font-size: 22px;
         margin-left: 24px;
     }
 `;
@@ -54,6 +68,7 @@ const ImageBannerBox = styled.div`
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 2rem;
 `;
 const BannerImage = styled.div<{$path:string}>`
     flex-basis: 23%;
@@ -69,6 +84,21 @@ const BannerImage = styled.div<{$path:string}>`
     background-size: cover;
     background-position: center;
     border-radius: 12px;
+    margin-bottom: 1rem;
+`;
+
+const TitleStyles = styled.div`
+    text-align: center;
+    margin-bottom: 2rem;
+    h1 {
+        color: #9a30ae;
+        font-size: 35px;
+    }
+    h2 {
+        margin-top: 30px;
+        font-size: 24px;
+        color: #343a40;
+    }
 `;
 
 export default function Home(){
@@ -93,33 +123,37 @@ const foodImage = (food : Food) => {
     return splitImage(food.image)
 }
 return(
-<Box>
-    <h1>음식 사진을 업로드하세요. </h1>
-    <h2>AI가 한국 음식을 분석하여 레시피와 관련 요리를 추천해드립니다. </h2>
-    <SearchBox>
-        <WebcamCapture />
-    </SearchBox>
-    <HowTo />
-    <BannerTitle>
-        <span>오늘의 추천 요리</span>
-    </BannerTitle>
-    <ImageBannerBox>
-        {
-            rFoods.map((data,i) => 
-                <div key={i} style={{
-                    display:'flex', flexDirection:'column'
-                }}>
-                    <NavLink to={`/kfood/detail/${data.code}`} key={i}>
-                        <BannerImage $path={`https://www.hansik.or.kr/resources/img/recipe/${foodImage(data)}`} />
-                    </NavLink>
-                    <span style={{
-                        fontSize:'12px',
-                        textAlign:'center'
-                    }}>{data.menu}</span>
-                </div>
-            )
-        }
-    </ImageBannerBox>
-</Box>
+    <Box>
+        <TitleStyles>
+            <h1>사진 한 장으로 한식 이름·레시피·활용까지</h1>
+            <h2>음식 사진을 업로드하세요</h2>
+        </TitleStyles>
+        <SearchBox>
+            <WebcamCapture />
+        </SearchBox>
+        <HowTo />
+        <BannerTitle>
+            <img src={imgLogo} />
+            <span>오늘의 추천 요리</span>
+        </BannerTitle>
+        <span>요리가 즐거워지는 추천 요리로 오늘도 요리해요!</span>
+        <ImageBannerBox>
+            {
+                rFoods.map((data,i) => 
+                    <div key={i} style={{
+                        display:'flex', flexDirection:'column'
+                    }}>
+                        <NavLink to={`/kfood/detail/${data.code}`} key={i}>
+                            <BannerImage $path={`https://www.hansik.or.kr/resources/img/recipe/${foodImage(data)}`} />
+                        </NavLink>
+                        <span style={{
+                            fontSize:'18px',
+                            textAlign:'center'
+                        }}>{data.menu}</span>
+                    </div>
+                )
+            }
+        </ImageBannerBox>
+    </Box>
 )
 }

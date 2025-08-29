@@ -7,18 +7,37 @@ import App from './App.tsx'
 import { Theme } from './theme.ts';
 
 const GlobalStyle = createGlobalStyle`
-  ${reset}
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #f9f9f9;
-  }
-  *{
-    box-sizing: border-box;
-  }
-  a{
-    text-decoration:unset;
-    color:unset;
-  }
+    ${reset}
+    @font-face {
+        font-family: 'GMarketSans';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+        font-weight: 300;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'GMarketSans';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: 500;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'GMarketSans';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+        font-weight: 700;
+        font-display: swap;
+    }
+
+    body {
+        font-family: 'GMarketSans', sans-serif;
+        background-color: #f9f9f9;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    a{
+        text-decoration:unset;
+        color:unset;
+    }
 `;
 
 createRoot(document.getElementById('root')!).render(

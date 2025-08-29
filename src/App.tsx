@@ -1,11 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import Home from "./router/home";
-import Header from "./componets/header";
 import styled from "styled-components";
 import CodeList from "./router/code_list";
 import Recommend from "./router/recommend";
 import { BackImage } from "./componets/styled_components";
 import FoodDetail from "./router/food_detail";
+
+import Header from "./componets/common/Header";
+// import Footer from "./componets/common/Footer";
+import { PageTemplate } from "./componets";
 
 const Box = styled.div`
   margin: 0px auto;
@@ -16,13 +19,13 @@ const Box = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  border-radius: 12px;
 `;
+
 function App() {
   return (
-    <>
+    
     <Box>
-    <BackImage $path="/kfood/images/main-back.png"/>
+      <BackImage $path="/kfood/images/main-back.png"/>
       <BrowserRouter>
         <Header />
         {/* <Menus /> */}
@@ -31,10 +34,10 @@ function App() {
           <Route path="/kfood/detail/:code" element={<FoodDetail />} />
           <Route path="/kfood/recommend" element={<Recommend />} />
           <Route path="/code" element={<CodeList />} />
-        </Routes>
+         </Routes>
+        {/* <Footer /> */}
       </BrowserRouter>
     </Box>
-    </>
   )
 }
 

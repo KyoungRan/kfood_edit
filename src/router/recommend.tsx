@@ -15,6 +15,7 @@ const Box = styled.div`
     min-width: 420px;
     justify-content: center;
     align-items: center;
+    margin-top: 7rem;
 `;
 const ImageBox = styled.div`
     width: 80%;
@@ -24,6 +25,7 @@ const ImageBox = styled.div`
     justify-items: start;
     gap: 8px;
     font-size: 18px;
+    margin-bottom: 2rem;
 `;
 const FoodImage = styled.div<{$path:string}>`
     background-image: ${props => `url(${props.$path})`};

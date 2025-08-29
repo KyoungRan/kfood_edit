@@ -1,13 +1,15 @@
 import styled from "styled-components";
+import ImageSearchIcon from '@mui/icons-material/ImageSearch';
 
 const HowBox = styled.div`
-    margin-top: 12px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 24px;
     .title{
-        font-size: 16px;
+        color: #862e9c;
+        font-size: 28px;
         font-weight: bold;
     }
     .how{
@@ -15,32 +17,62 @@ const HowBox = styled.div`
         gap: 40px;
     }
 `;
+
 const HowStage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    div{
+    div {
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        background-color: #ffe3e3;
+        border: 2px solid #862e9c;   /* 테두리 색상 */
+        background-color: transparent; /* 배경 투명 */
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .stage{
-        font-size: 14px;
+    .stage {
+        font-size: 18px;
     }
-    .desc{
-        font-size: 12px
+    .desc {
+        font-size: 16px;
     }
 `;
+
 const HowSvg = styled.svg`
     width: 30px;
     height: 30px;
-    fill: #c2255c;
+    fill: #862e9c;   /* 아이콘 색상 */
 `;
+
+// const HowStage = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     gap: 12px;
+//     div{
+//         width: 60px;
+//         height: 60px;
+//         border-radius: 50%;
+//         background-color: #ffe3e3;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//     }
+//     .stage{
+//         font-size: 14px;
+//     }
+//     .desc{
+//         font-size: 12px
+//     }
+// `;
+// const HowSvg = styled.svg`
+//     width: 30px;
+//     height: 30px;
+//     fill: #c2255c;
+// `;
 
 export default function HowTo(){
     return(
@@ -58,8 +90,8 @@ export default function HowTo(){
             </HowStage>
             <HowStage>
                 <div>
-                    <HowSvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path d="M193.1 32c-18.7 0-36.2 9.4-46.6 24.9L120.5 96 64 96C28.7 96 0 124.7 0 160L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64l-56.5 0-26-39.1C355.1 41.4 337.6 32 318.9 32L193.1 32zm-6.7 51.6c1.5-2.2 4-3.6 6.7-3.6l125.7 0c2.7 0 5.2 1.3 6.7 3.6l33.2 49.8c4.5 6.7 11.9 10.7 20 10.7l69.3 0c8.8 0 16 7.2 16 16l0 256c0 8.8-7.2 16-16 16L64 432c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l69.3 0c8 0 15.5-4 20-10.7l33.2-49.8zM256 384a112 112 0 1 0 0-224 112 112 0 1 0 0 224zM192 272a64 64 0 1 1 128 0 64 64 0 1 1 -128 0z"/>
+                    <HowSvg>
+                        <ImageSearchIcon sx={{ fontSize: 24, color: "#862e9c" }} />
                     </HowSvg>
                 </div>
                 <span className="stage">2. AI 분석</span>
